@@ -10,7 +10,7 @@ namespace OA.Service
 {
     public interface IUserService : IRepository<User> 
     {
-        
 
+        void Save();
     }
 }

@@ -21,7 +21,11 @@ namespace OA.Service
 
 
 
+        public void Save()
+        {
+            _db.SaveChanges();
+        }
 
-
+       
     }
 }

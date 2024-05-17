@@ -25,6 +25,29 @@ namespace OA.WEB.Controllers
 
             return View(usr);
         }
+
+
+
+        public IActionResult Create()
+        {
+
+            return View();
+        }
+
+
+        [HttpPost]
+
+        public IActionResult Create(User userobj)
+        {
+
+            if(ModelState.IsValid)
+            {
+                _user.Add(userobj);
+                _user.Save();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     
 
        
