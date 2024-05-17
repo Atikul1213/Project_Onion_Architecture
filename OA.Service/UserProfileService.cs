@@ -11,10 +11,12 @@ namespace OA.Service
     public class UserProfileService : Repository<UserProfile>, IUserProfileService
     {
         private ApplicationDbContext _db;
+       // public IUserProfileService userprofileservice { get; private set; }
 
         public UserProfileService(ApplicationDbContext db) : base(db)
         {
             _db = db;
+           // userprofileservice = new UserProfileService(_db);
         }
 
     }

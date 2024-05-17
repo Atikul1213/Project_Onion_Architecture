@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.DATA", "OA.DATA\OA.DATA.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.REPO", "OA.REPO\OA.REPO.csproj", "{55B9547C-3BA9-480B-A2ED-D0E3E6A0129B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Service", "OA.Service\OA.Service.csproj", "{08853235-2140-40E0-B0A0-7B80C6CFC979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Service", "OA.Service\OA.Service.csproj", "{08853235-2140-40E0-B0A0-7B80C6CFC979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.WEB", "OA.WEB\OA.WEB.csproj", "{9097ABBB-CE8F-4A8A-BB66-8C607E0E1345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{08853235-2140-40E0-B0A0-7B80C6CFC979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08853235-2140-40E0-B0A0-7B80C6CFC979}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08853235-2140-40E0-B0A0-7B80C6CFC979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9097ABBB-CE8F-4A8A-BB66-8C607E0E1345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9097ABBB-CE8F-4A8A-BB66-8C607E0E1345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9097ABBB-CE8F-4A8A-BB66-8C607E0E1345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9097ABBB-CE8F-4A8A-BB66-8C607E0E1345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
