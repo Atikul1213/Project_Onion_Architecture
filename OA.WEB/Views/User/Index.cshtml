@@ -2,6 +2,9 @@
 @model List<User>
 
 
+<h2>this is from the Index page that i see</h2>
+
+
 
 <div class="card shadow borderborder-0 mt-4">
     <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
@@ -37,25 +40,51 @@
                     <th>Email</th>
                     <th>Password</th>
                     <th>IP Address</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
+                    <th>AddedDate</th>
+                    <th>ModifiedDate</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Address</th>
+                    <th>Operation</th>
 
                     <th> </th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach (var obj in Model)
+                @foreach(var obj in Model)
                 {
                     <tr>
                         <td>@obj.UserName</td>
                         <td>@obj.Email</td>
                         <td>@obj.Password</td>
                         <td>@obj.IPAddress</td>
-                        <td>@obj.UserProfile.FirstName</td>
-                        <td>@obj.UserProfile.LastName</td>
-                        <td>@obj.UserProfile.Address</td>
+                        <td>@obj.AddedDate</td>
+                        <td>@obj.ModifiedDate</td>
+
+                        
+                            @foreach(var m in @obj.UserProfile)
+                            {
+                               <td>@m.FirstName</td>
+                            }
+
+
+                        @foreach (var m in @obj.UserProfile)
+                        {
+                            <td>@m.LastName</td>
+                        }
+
+
+                        @foreach (var m in @obj.UserProfile)
+                        {
+                            <td>@m.Address</td>
+                        }
+
+
+                         
+                        
+                         
+                         @* <td>@obj.UserProfile.Address</td> *@
 
                         <td>
                             <div class="w-75 btn-group" rolw="group">
@@ -83,3 +112,4 @@
 
 </div>
 
+ 

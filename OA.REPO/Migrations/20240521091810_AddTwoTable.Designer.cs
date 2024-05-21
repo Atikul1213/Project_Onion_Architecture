@@ -12,8 +12,8 @@ using OA.REPO;
 namespace OA.REPO.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240517093932_addTable")]
-    partial class addTable
+    [Migration("20240521091810_AddTwoTable")]
+    partial class AddTwoTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,13 +57,16 @@ namespace OA.REPO.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("OA.DATA.UserProfile", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
@@ -89,16 +92,21 @@ namespace OA.REPO.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("UserProfile");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserProfiles");
                 });
 
             modelBuilder.Entity("OA.DATA.UserProfile", b =>
                 {
                     b.HasOne("OA.DATA.User", "User")
-                        .WithOne("UserProfile")
-                        .HasForeignKey("OA.DATA.UserProfile", "Id")
+                        .WithMany("UserProfile")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -107,8 +115,7 @@ namespace OA.REPO.Migrations
 
             modelBuilder.Entity("OA.DATA.User", b =>
                 {
-                    b.Navigation("UserProfile")
-                        .IsRequired();
+                    b.Navigation("UserProfile");
                 });
 #pragma warning restore 612, 618
         }

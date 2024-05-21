@@ -20,12 +20,22 @@ namespace OA.WEB.Controllers
 
         public ActionResult Index()
         {
-            var usr = _user.GetAll();
-
+            var usr = _user.GetAll().ToList();
+            var usrprofiles = new List<UserProfile>();
+            for(int i = 0;i < usr.Count(); i++)
+            {
+                usrprofiles.Add(_userProfile.Get(u => u.Id == usr[i].Id));
+                usr[i].UserProfile = usrprofiles;
+            }
+            
+            /*foreach(var obj in usr)
+            {
+                //usrprofile = _userProfile.Get(u => u.Id == obj.Id);
+                obj.UserProfile.Add(_userProfile.Get(u => u.Id == obj.Id));
+            }*/
 
             return View(usr);
         }
-
 
 
         public IActionResult Create()
@@ -34,6 +44,7 @@ namespace OA.WEB.Controllers
             return View();
         }
 
+       
 
         [HttpPost]
 
